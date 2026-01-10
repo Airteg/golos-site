@@ -1,0 +1,14 @@
+D:\ProjectsVVV\ChromeExtension\golos\docs
+├── assets
+│   └── icons
+│       ├── icon-green-128.png
+│       ├── icon-green-16.png
+│       ├── icon-green-32.png
+│       ├── icon-green-48.png
+│       ├── icon-red-128.png
+│       ├── icon-red-16.png
+│       ├── icon-red-32.png
+│       └── icon-red-48.png
+├── index.html
+├── style.css
+└── tree.txt
