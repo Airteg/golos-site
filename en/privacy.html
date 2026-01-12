@@ -10,52 +10,128 @@
       type="image/png"
       href="../assets/icons/icon-green-32.png"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      const stored = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
+      const theme = stored || (prefersDark ? "dark" : "light");
+      document.documentElement.dataset.theme = theme;
+    </script>
   </head>
   <body>
     <header class="header">
       <div class="container header-content">
-        <a href="index.html" class="logo"
-          ><span class="logo-dot"></span> Golos</a
-        >
-        <nav class="lang-switch">
-          <a href="../uk/privacy.html">UA</a> |
-          <a href="#" class="active">EN</a>
-        </nav>
+        <a href="index.html" class="logo">
+          <img
+            src="../assets/icons/icon-green-48.png"
+            alt="Golos Logo"
+            width="32"
+            height="32"
+          />
+          Golos
+        </a>
+
+        <div class="header-right">
+          <a href="index.html" class="nav-link">Home</a>
+
+          <div class="controls-pill">
+            <nav class="lang-switch">
+              <a href="../ua/privacy.html">UA</a>
+              <span class="divider">|</span>
+              <a href="#" class="active">EN</a>
+            </nav>
+            <button
+              id="themeToggle"
+              class="theme-toggle"
+              aria-label="Toggle theme"
+            >
+              🌙
+            </button>
+          </div>
+        </div>
       </div>
     </header>
 
     <main class="container privacy-content">
       <h1>Privacy Policy</h1>
-      <p>Last updated: January 10, 2026</p>
+      <p class="hero-subtitle" style="text-align: left; margin-bottom: 30px">
+        Last updated: January 12, 2026
+      </p>
 
       <h2>1. Data Collection</h2>
       <p>
-        "Golos" extension
-        <strong>does not collect, store, or transmit</strong> your voice
-        recordings or text data to our servers.
+        We value your privacy. "Golos" is designed to operate as autonomously as
+        possible.
       </p>
       <p>
-        All voice processing is handled locally or via your browser's Web Speech
-        API.
+        <strong>We do not record, store, or transmit</strong> your voice or
+        dictated text to our servers. All processing happens locally within your
+        browser using standard Web APIs.
       </p>
 
-      <h2>2. Permissions</h2>
+      <h2>2. Why do we need permissions?</h2>
+      <p>
+        Chrome may ask for specific permissions during installation. Here is why
+        we need them:
+      </p>
       <ul>
         <li>
-          <strong>Microphone:</strong> Used solely for speech recognition during
-          active sessions.
+          <strong>Microphone:</strong>
+          <br />
+          Activated <em>only</em> when you press the Start button or the hotkey.
+          It is used solely to convert your speech to text in real-time.
         </li>
         <li>
-          <strong>ActiveTab / Scripting:</strong> Required to insert recognized
-          text into the active page field.
+          <strong>Page Access (ActiveTab):</strong>
+          <br />
+          This permission is required only to
+          <em>insert text automatically</em> into the field where your cursor is
+          placed. We do not read your browsing history or analyze website
+          content.
         </li>
         <li>
-          <strong>Offscreen:</strong> Used for audio feedback notifications.
+          <strong>Audio (Offscreen):</strong>
+          <br />
+          Used to play short sound notifications (ON/OFF), so you know exactly
+          when the recording starts and stops.
         </li>
       </ul>
 
       <h2>3. Contact</h2>
-      <p>For any questions, please contact: [YOUR EMAIL HERE]</p>
+      <p>If you have any questions, please contact us:</p>
+      <p><strong>Email:</strong> [YOUR EMAIL]</p>
     </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2026 Golos Project. All rights reserved.</p>
+        <p><a href="#" class="active">Privacy Policy</a></p>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        const toggle = document.getElementById("themeToggle");
+        const root = document.documentElement;
+
+        if (toggle) {
+          toggle.textContent = root.dataset.theme === "dark" ? "☀️" : "🌙";
+
+          toggle.addEventListener("click", () => {
+            const current = root.dataset.theme;
+            const next = current === "dark" ? "light" : "dark";
+            root.dataset.theme = next;
+            localStorage.setItem("theme", next);
+            toggle.textContent = next === "dark" ? "☀️" : "🌙";
+          });
+        }
+      })();
+    </script>
   </body>
 </html>

@@ -3,47 +3,160 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Golos — Voice Typing Extension</title>
+    <title>Golos — Voice Typing</title>
     <link rel="stylesheet" href="../assets/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="icon"
-      type="image/png"
-      href="../assets/icons/icon-green-32.png"
-    />
+    <link rel="icon" href="../assets/icons/icon-green-32.png" />
   </head>
   <body>
+    <script>
+      const stored = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
+      const theme = stored || (prefersDark ? "dark" : "light");
+      document.documentElement.dataset.theme = theme;
+    </script>
     <header class="header">
       <div class="container header-content">
-        <a href="#" class="logo"> <span class="logo-dot"></span> Golos </a>
-        <nav class="lang-switch">
-          <a href="../uk/index.html">UA</a> | <a href="#" class="active">EN</a>
-        </nav>
+        <a href="index.html" class="logo">
+          <img
+            src="../assets/icons/icon-green-48.png"
+            alt="Golos Logo"
+            width="32"
+            height="32"
+          />
+          Golos
+        </a>
+
+        <div class="header-right">
+          <a href="#" class="nav-link">Documentation</a>
+
+          <div class="controls-pill">
+            <nav class="lang-switch">
+              <a href="../ua/index.html">UA</a>
+              <span class="divider">|</span>
+              <a href="#" class="active">EN</a>
+            </nav>
+            <button
+              id="themeToggle"
+              class="theme-toggle"
+              aria-label="Toggle theme"
+            >
+              🌙
+            </button>
+          </div>
+        </div>
       </div>
     </header>
 
-    <main class="hero">
-      <div class="container">
-        <h1 class="hero-title">Type with your voice.<br />Control the text.</h1>
-        <p class="hero-subtitle">
-          The smart voice-to-text extension for Chrome. Features
-          <strong>automatic punctuation</strong>, smart capitalization, and
-          currency conversion.
-        </p>
-        <div class="hero-actions">
-          <a href="#" class="btn btn-primary">Add to Chrome</a>
+    <main>
+      <section class="hero">
+        <div class="container">
+          <h1 class="hero-title">
+            Voice Typing <br />
+            Without Surprises
+          </h1>
+          <h3>
+            Golos transforms speech to text exactly as you expect:<br />
+            with control over punctuation, numbers, and formatting.
+          </h3>
+          <p class="hero-subtitle">
+            Golos is a voice typing extension.<br />
+            Golos doesn't force you to guess the result. You decide where
+            pauses, commas, and periods belong — calmly, predictably, and
+            without surprises.<br />
+            Works in most text fields on websites where text input is allowed.
+          </p>
+          <div class="hero-actions">
+            <a href="#" class="btn btn-primary">Add to Chrome</a>
+            <a href="#features" class="btn btn-outline">How it works?</a>
+          </div>
+          <div class="hero-image">
+            <div class="placeholder-widget">
+              <div class="widget-header">
+                <div class="dot listening"></div>
+                Listening...
+              </div>
+              <div class="widget-text">
+                Hello, how are you? I want to earn a million dollars.
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
+
+      <section id="features" class="features">
+        <div class="container">
+          <h2 class="section-title">Why Golos?</h2>
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="icon">✨</div>
+              <h3>Control Over Punctuation</h3>
+              <p>
+                Golos doesn't make you guess what the algorithm will
+                "understand". You control punctuation marks with your voice —
+                clearly, predictably, and without surprises. Optional automatic
+                punctuation for subscribers is planned for future versions.
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="icon">💰</div>
+              <h3>Smart Number & Currency Formatting</h3>
+              <p>
+                Golos formats dictated amounts into a familiar look.<br />
+                "five hundred dollars" → $500 <br />
+                "one hundred euros" → €100
+              </p>
+              <p>
+                This isn't just financial logic, but neat formatting for daily
+                text work.
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="icon">🔒</div>
+              <h3>Privacy by Default</h3>
+              <p>
+                In the current version, Golos works locally and uses browser
+                capabilities. We do not store your voice or transfer text to
+                third-party services without your consent. If cloud features
+                appear in future versions, they will be optional and
+                transparent.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="footer">
       <div class="container">
-        <p>&copy; 2026 Golos Project.</p>
+        <p>&copy; 2026 Golos Project. All rights reserved.</p>
         <p><a href="privacy.html">Privacy Policy</a></p>
       </div>
     </footer>
+    <script>
+      (function () {
+        const toggle = document.getElementById("themeToggle");
+        const root = document.documentElement;
+
+        if (toggle) {
+          toggle.textContent = root.dataset.theme === "dark" ? "☀️" : "🌙";
+
+          toggle.addEventListener("click", () => {
+            const current = root.dataset.theme;
+            const next = current === "dark" ? "light" : "dark";
+            root.dataset.theme = next;
+            localStorage.setItem("theme", next);
+            toggle.textContent = next === "dark" ? "☀️" : "🌙";
+          });
+        }
+      })();
+    </script>
   </body>
 </html>

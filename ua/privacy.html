@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Політика конфіденційності — Golos</title>
+    <link rel="stylesheet" href="../assets/style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../assets/icons/icon-green-32.png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <script>
+      const stored = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
+      const theme = stored || (prefersDark ? "dark" : "light");
+      document.documentElement.dataset.theme = theme;
+    </script>
+    <header class="header">
+      <div class="container header-content">
+        <a href="index.html" class="logo">
+          <img
+            src="../assets/icons/icon-green-48.png"
+            alt="Golos Logo"
+            width="32"
+            height="32"
+          />
+          Golos
+        </a>
+
+        <div class="header-right">
+          <a href="index.html" class="nav-link">На головну</a>
+
+          <div class="controls-pill">
+            <nav class="lang-switch">
+              <a href="#" class="active">UA</a>
+              <span class="divider">|</span>
+              <a href="../en/privacy.html">EN</a>
+            </nav>
+            <button
+              id="themeToggle"
+              class="theme-toggle"
+              aria-label="Змінити тему"
+            >
+              🌙
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container privacy-content">
+      <h1>Політика конфіденційності</h1>
+      <p class="hero-subtitle" style="text-align: left; margin-bottom: 30px">
+        Останнє оновлення: 12 січня 2026
+      </p>
+
+      <h2>1. Головне про ваші дані</h2>
+      <p>
+        Ми поважаємо вашу приватність. Розширення "Golos" створено так, щоб
+        працювати максимально автономно.
+      </p>
+      <p>
+        <strong>Ми не записуємо, не зберігаємо і не надсилаємо</strong> ваш
+        голос чи продиктований текст на наші сервери. Уся обробка відбувається
+        безпосередньо у вашому браузері.
+      </p>
+
+      <h2>2. Для чого потрібні дозволи?</h2>
+      <p>
+        Коли ви встановлюєте розширення, Chrome може попередити про надання
+        певних прав. Ось навіщо вони нам:
+      </p>
+      <ul>
+        <li>
+          <strong>Мікрофон (Microphone):</strong>
+          <br />
+          Вмикається <em>тільки</em> тоді, коли ви натискаєте кнопку "Старт" або
+          комбінацію клавіш. Потрібен виключно для того, щоб перетворити вашу
+          мову на текст у реальному часі.
+        </li>
+        <li>
+          <strong>Доступ до сторінки (ActiveTab):</strong>
+          <br />
+          Дозвіл потрібен лише для того, щоб розширення могло
+          <em>автоматично вписати</em> розпізнаний текст у поле, де стоїть ваш
+          курсор. Ми не читаємо вашу історію переглядів і не аналізуємо вміст
+          сайтів.
+        </li>
+        <li>
+          <strong>Звук (Offscreen):</strong>
+          <br />
+          Використовується для відтворення коротких звукових сигналів (ON/OFF),
+          щоб ви знали, коли запис почався, а коли завершився.
+        </li>
+      </ul>
+
+      <h2>3. Зв'язок</h2>
+      <p>Якщо у вас залишилися запитання, напишіть нам:</p>
+      <p><strong>Email:</strong> [ТВІЙ EMAIL]</p>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2026 Golos Project. Усі права захищені.</p>
+        <p><a href="#" class="active">Політика конфіденційності</a></p>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        const toggle = document.getElementById("themeToggle");
+        const root = document.documentElement;
+
+        if (toggle) {
+          // Синхронізуємо іконку при завантаженні
+          toggle.textContent = root.dataset.theme === "dark" ? "☀️" : "🌙";
+
+          toggle.addEventListener("click", () => {
+            const current = root.dataset.theme;
+            const next = current === "dark" ? "light" : "dark";
+            root.dataset.theme = next;
+            localStorage.setItem("theme", next);
+            toggle.textContent = next === "dark" ? "☀️" : "🌙";
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

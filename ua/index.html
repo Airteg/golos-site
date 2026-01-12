@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Golos — Голосове введення українською</title>
+    <link rel="stylesheet" href="../assets/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="../assets/icons/icon-green-32.png" />
+  </head>
+  <body>
+    <script>
+      const stored = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
+      const theme = stored || (prefersDark ? "dark" : "light");
+      document.documentElement.dataset.theme = theme;
+    </script>
+    <header class="header">
+      <div class="container header-content">
+        <a href="/ua/" class="logo">
+          <img
+            src="../assets/icons/icon-green-48.png"
+            alt="Golos Logo"
+            width="32"
+            height="32"
+          />
+          Golos
+        </a>
+
+        <div class="header-right">
+          <a href="#" class="nav-link">Документація</a>
+
+          <div class="controls-pill">
+            <nav class="lang-switch">
+              <a href="/ua/" class="active">UA</a>
+              <span class="divider">|</span>
+              <a href="/en/">EN</a>
+            </nav>
+            <button
+              id="themeToggle"
+              class="theme-toggle"
+              aria-label="Змінити тему"
+            >
+              🌙
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <h1 class="hero-title">
+            Голосове введення <br />
+            без сюрпризів
+          </h1>
+          <h3>
+            Golos перетворює мовлення на текст так, як ви очікуєте:<br />
+            з контролем пунктуації, чисел і форматування.
+          </h3>
+          <p class="hero-subtitle">
+            Golos — розширення для голосового введення тексту.<br />
+            Golos не змушує вас вгадувати результат. Ви самі визначаєте, де в
+            тексті мають бути паузи, коми й крапки — спокійно, передбачувано і
+            без несподіванок.<br />
+            Працює у більшості текстових полів на сайтах, де дозволене введення
+            тексту.
+          </p>
+          <div class="hero-actions">
+            <a href="#" class="btn btn-primary">Встановити в Chrome</a>
+            <a href="#features" class="btn btn-outline">Як це працює?</a>
+          </div>
+          <div class="hero-image">
+            <div class="placeholder-widget">
+              <div class="widget-header">
+                <div class="dot listening"></div>
+                Слухаю...
+              </div>
+              <div class="widget-text">
+                Привіт, як твої справи? Я хочу заробити мільйон доларів.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="features">
+        <div class="container">
+          <h2 class="section-title">Чому Golos?</h2>
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="icon">✨</div>
+              <h3>Контроль над пунктуацією</h3>
+              <p>
+                Golos не змушує вас вгадувати, що “зрозуміє” алгоритм. Ви самі
+                керуєте розділовими знаками голосом — чітко, передбачувано і без
+                сюрпризів. У майбутніх версіях планується опціональна
+                автоматична пунктуація для підписників.
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="icon">💰</div>
+              <h3>Зручне представлення чисел і сум</h3>
+              <p>
+                Golos приводить продиктовані суми до звичного вигляду.<br />«п'ятсот
+                доларів» → 500 $ <br />«сто євро» → 100 €
+              </p>
+              <p>
+                Це не фінансова логіка, а акуратне форматування для щоденної
+                роботи з текстом.
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="icon">🔒</div>
+              <h3>Приватність за замовчуванням</h3>
+              <p>
+                У поточній версії Golos працює локально та використовує
+                можливості браузера. Ми не зберігаємо ваш голос і не передаємо
+                текст стороннім сервісам без вашої згоди. Якщо у майбутніх
+                версіях з’являться хмарні функції, вони будуть опціональними і
+                прозорими.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2026 Golos Project. Усі права захищені.</p>
+        <p><a href="/ua/privacy.html">Політика конфіденційності</a></p>
+      </div>
+    </footer>
+    <script>
+      (function () {
+        const toggle = document.getElementById("themeToggle");
+        const root = document.documentElement;
+
+        if (toggle) {
+          toggle.textContent = root.dataset.theme === "dark" ? "☀️" : "🌙";
+
+          toggle.addEventListener("click", () => {
+            const current = root.dataset.theme;
+            const next = current === "dark" ? "light" : "dark";
+            root.dataset.theme = next;
+            localStorage.setItem("theme", next);
+            toggle.textContent = next === "dark" ? "☀️" : "🌙";
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>
