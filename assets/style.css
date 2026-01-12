@@ -39,6 +39,18 @@ body {
     color 0.3s;
 }
 
+main a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+
+main a:hover {
+  color: var(--primary-dark);
+  text-decoration-thickness: 2px;
+}
+
 .container {
   max-width: 1000px;
   margin: 0 auto;
