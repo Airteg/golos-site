@@ -105,7 +105,17 @@
 
       <h2>3. Contact</h2>
       <p>If you have any questions, please contact us:</p>
-      <p><strong>Email:</strong> [YOUR EMAIL]</p>
+      <p>
+        <strong>Email:</strong>
+        <a
+          href="#"
+          id="contact-email"
+          data-user="airteg10"
+          data-domain="gmail.com"
+        >
+          (Show email address)
+        </a>
+      </p>
     </main>
 
     <footer class="footer">
@@ -117,6 +127,22 @@
 
     <script>
       (function () {
+        const emailLink = document.getElementById("contact-email");
+        if (emailLink) {
+          emailLink.addEventListener("click", (e) => {
+            if (emailLink.getAttribute("href") === "#") {
+              e.preventDefault();
+              const user = emailLink.getAttribute("data-user");
+              const domain = emailLink.getAttribute("data-domain");
+              const email = `${user}@${domain}`;
+
+              emailLink.href = `mailto:${email}`;
+              emailLink.textContent = email;
+
+              // window.location.href = `mailto:${email}`;
+            }
+          });
+        }
         const toggle = document.getElementById("themeToggle");
         const root = document.documentElement;
 
