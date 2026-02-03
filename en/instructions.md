@@ -64,7 +64,7 @@ To insert punctuation, simply say its name:
 - 🗣 _"Open bracket"_ / _"Close bracket"_ → `(` `)`
 - 🗣 _"Dash"_ → `—`
 
-1. To stop dictation, press **Alt + Shift + G** again,  
+5. To stop dictation, press **Alt + Shift + G** again,  
    or click the icon ![Golos icon](../assets/icons/icon-red-16.png) on the Google Chrome extensions toolbar,  
    or use the close button on the widget.
 
