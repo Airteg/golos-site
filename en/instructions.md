@@ -70,6 +70,65 @@ To insert punctuation, simply say its name:
 
 ---
 
+#### Appendix: Voice Commands (Punctuation & Symbols)
+
+While dictating, you can **say punctuation marks and symbols out loud** — Golos will automatically convert them into the corresponding characters.
+
+##### Punctuation
+
+- **“semicolon”** → `;`
+- **“colon”** → `:`
+- **“comma”** → `,`
+- **“dot”** → `.`
+- **“question mark”** → `?`
+- **“exclamation mark”** → `!`
+
+##### Hyphens and dashes
+
+- **“hyphen”** → `-`
+- **“dash”** → `—`
+
+##### Line breaks
+
+- **“new line”** → moves text to a new line
+- **“paragraph”** → inserts a blank line and starts a new paragraph
+
+##### Brackets
+
+- **“open bracket”** → `(`
+- **“close bracket”** → `)`
+
+##### Quotation marks
+
+- **“quotes”** → `"`
+- **“open quotes”** → `«`
+- **“close quotes”** → `»`
+
+##### Special symbols
+
+- **“smiley”** → `🙂`
+- **“ampersand”** → `&`
+- **“backslash”** → `\`
+- **“slash”** → `/`
+- **“middle dot”** → `·`
+- **“degree sign”** → `°`
+- **“underscore”** → `_`
+- **“vertical bar”** → `|`
+
+##### Currencies
+
+- **“dollar”** → `$`
+- **“euro”** → `€`
+- **“pound”** → `£`
+- **“hryvnia”** → `₴`
+
+💡 **Additional notes**
+
+- Saying **“UAH”** or **“hryvnia”** will automatically be converted to `₴`.
+- Currency symbols are inserted even if the spoken word has different endings or forms.
+
+---
+
 #### 5. How to open Golos options
 
 There are two ways:
