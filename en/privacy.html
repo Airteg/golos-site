@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -14,17 +14,16 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
       rel="stylesheet"
     />
-
+  </head>
+  <body>
     <script>
       const stored = localStorage.getItem("theme");
       const prefersDark = window.matchMedia(
-        "(prefers-color-scheme: dark)"
+        "(prefers-color-scheme: dark)",
       ).matches;
       const theme = stored || (prefersDark ? "dark" : "light");
       document.documentElement.dataset.theme = theme;
     </script>
-  </head>
-  <body>
     <header class="header">
       <div class="container header-content">
         <a href="index.html" class="logo">
@@ -42,14 +41,14 @@
 
           <div class="controls-pill">
             <nav class="lang-switch">
-              <a href="../ua/privacy.html">UA</a>
+              <a href="../privacy.html">UA</a>
               <span class="divider">|</span>
               <a href="#" class="active">EN</a>
             </nav>
             <button
               id="themeToggle"
               class="theme-toggle"
-              aria-label="Toggle theme"
+              aria-label="Change theme"
             >
               🌙
             </button>
@@ -64,46 +63,78 @@
         Last updated: January 12, 2026
       </p>
 
-      <h2>1. Data Collection</h2>
+      <h2>1. Key Facts About Your Data</h2>
       <p>
-        We value your privacy. "Golos" is designed to operate as autonomously as
-        possible.
-      </p>
-      <p>
-        <strong>We do not record, store, or transmit</strong> your voice or
-        dictated text to our servers. All processing happens locally within your
-        browser using standard Web APIs.
+        We respect your privacy. The "Golos" extension is designed to work as
+        autonomously as possible.
       </p>
 
-      <h2>2. Why do we need permissions?</h2>
       <p>
-        Chrome may ask for specific permissions during installation. Here is why
-        we need them:
+        <strong>We do not record, store, or send</strong> your voice or dictated
+        text to <strong>our</strong> servers.
       </p>
+
+      <p>
+        Speech recognition is performed using
+        <strong>Google Chrome's built-in engine</strong> (Speech Recognition).
+        Depending on browser settings, capabilities, and language, Chrome may
+        process audio either locally or via its online services. Golos does not
+        control this process and does not have its own recognition servers in
+        this version.
+      </p>
+
+      <h2>2. Why Are Permissions Required?</h2>
+      <p>
+        When you install the extension, Chrome may warn you about granting
+        certain permissions. Here is why they are needed:
+      </p>
+
       <ul>
         <li>
-          <strong>Microphone:</strong>
-          <br />
-          Activated <em>only</em> when you press the Start button or the hotkey.
-          It is used solely to convert your speech to text in real-time.
+          <strong>Microphone:</strong><br />
+          Used <em>only</em> during dictation — when you start Golos via the
+          button or hotkey. Required so Chrome can recognize your speech.
         </li>
+
         <li>
-          <strong>Page Access (ActiveTab):</strong>
-          <br />
-          This permission is required only to
-          <em>insert text automatically</em> into the field where your cursor is
-          placed. We do not read your browsing history or analyze website
-          content.
+          <strong>Active Tab Access (activeTab):</strong><br />
+          Required so the extension can <em>insert</em> recognized text into the
+          input field where your cursor is located. We do not read browsing
+          history and do not analyze site content.
         </li>
+
         <li>
-          <strong>Audio (Offscreen):</strong>
-          <br />
-          Used to play short sound notifications (ON/OFF), so you know exactly
-          when the recording starts and stops.
+          <strong>Tabs Access (tabs):</strong><br />
+          Used for the operation of the service "engine" tab and message
+          exchange between tabs during dictation.
+        </li>
+
+        <li>
+          <strong>Storage:</strong><br />
+          Needed to save your settings (e.g., recognition language) and widget
+          position.
+        </li>
+
+        <li>
+          <strong>Context Menus (contextMenus):</strong><br />
+          Adds the "⚙️ Golos Settings" menu item for quick access to options.
+        </li>
+
+        <li>
+          <strong>Audio/Sound (offscreen):</strong><br />
+          Used to play short sound signals (ON/OFF/ERROR) so you know when
+          dictation has started or finished.
+        </li>
+
+        <li>
+          <strong>Site Access (“All sites” / &lt;all_urls&gt;):</strong><br />
+          Required so Golos can work on any website and insert text into allowed
+          input fields. The extension does not read or send page content to our
+          servers.
         </li>
       </ul>
 
-      <h2>3. Contact</h2>
+      <h2>3. Contact Us</h2>
       <p>If you have any questions, please contact us:</p>
       <p>
         <strong>Email:</strong>
